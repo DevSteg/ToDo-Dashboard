@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url('/assets/images/background-image-switz.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* -- Todo List -- */
+.todo {
+    background-color: #f2f2f2;
+    text-align: center;
+    border-radius: 50px;
+    min-height: 300px;
+}
+
+#mainobj {
+    border: none;
+    border-bottom: white solid 4px;
+    background: none;
+    width: 70%;
+    text-align: center;
+}
+
+#mainobj:focus, 
+.todo-btn:focus {
+    outline:none;
+}
+
+.todo-title {
+    margin-top: 5%;
+}
+
+#todo-input {
+    width: 65%;
+}
+
+.todo-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.list-item {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
