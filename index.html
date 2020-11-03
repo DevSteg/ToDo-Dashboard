@@ -20,32 +20,42 @@
         <div class="container-fluid">
             <div class="row">
                 <section class="col-lg-4">
-                    <div class="clock">
-                        
+                    <div class="clock bg-block">
+                        <div class="clock-block">
+                            <p class="time"><i class="far fa-clock"></i></p>
+                            <h4 class="time-loc">Location</h4>
+                        </div>
+                    </div>
+                </section>
+                <section class="col-lg-4 todo-section">
+                    <div class="todo bg-block">
+                        <div class="main-obj">
+                            <h1 class="mainobj-title">Your Main Objective Today is...</h1>
+                            <input type="text" id="mainobj">
+                        </div>
+                        <div>
+                            <h1 class="todo-title">ToDo Today</h1>
+                            <input type="text" id="todo-input" placeholder="Enter ToDo">
+                            <button class="todo-btn"><i class="far fa-plus-square"></i></button>
+                            <ul class="todo-list">
+                                <li class="list-item">
+                                    <i class="far fa-circle"></i>
+                                    <p>Drink Coffee</p>
+                                    <i class="fas fa-trash"></i>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
                 <section class="col-lg-4">
-                    <div class="todo">
-                        <h1 class="mainobj-title">Your Main Objective Today is...</h1>
-                        <input type="text" id="mainobj">
-                        <hr class="todo-hr">
-                        <h1 class="todo-title">ToDo Today</h1>
-                        <input type="text" id="todo-input" placeholder="Enter ToDo">
-                        <button class="todo-btn"><i class="far fa-plus-square"></i></button>
-                        <ul class="todo-list">
-                            <li class="list-item">
-                                <i class="far fa-circle"></i>
-                                <p>Drink Coffee</p>
-                                <i class="fas fa-trash"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="col-lg-4">
-                    <div class="weather">
-                        <h2 id="location">Location</h2>
-                        <h3 id="temp">C/F</h3>
-                        <p class="weather-icon">Icon</p>
+                    <div class="weather bg-block">
+                        <div class="weather-block">
+                            <div class="loc-temp">
+                                <h2 class="location">Location</h2>
+                                <h3 class="temp">C/F</h3>
+                            </div>
+                            <p class="weather-icon"><i class="fas fa-wind"></i></p>
+                        </div>
                     </div>
                 </section>
             </div>

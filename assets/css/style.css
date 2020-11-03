@@ -8,13 +8,27 @@ body {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
 }
+
+.bg-light {
+    opacity: 0;
+}
+
+.todo-section{
+    height: 100%;
+    margin-top: 15%;
+}
+
+.bg-block {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    text-align: center;
+}
+
 
 /* -- Todo List -- */
 .todo {
-    background-color: #f2f2f2;
-    text-align: center;
-    border-radius: 50px;
     min-height: 300px;
 }
 
@@ -42,7 +56,10 @@ body {
 .todo-btn {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 
 .list-item {
@@ -50,4 +67,18 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+/* -- Weather -- */
+
+.weather-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.weather-icon {
+    margin-top: 3%;
+    font-size: 2.5rem;
 }
