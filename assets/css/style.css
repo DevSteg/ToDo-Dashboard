@@ -5,9 +5,9 @@
 
 body {
     background-image: url('/assets/images/background-image-switz.jpg');
+    background-size: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
     color: white;
 }
 
@@ -71,7 +71,7 @@ body {
 
 /* -- Weather -- */
 
-.weather-block{
+.weather-block {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
