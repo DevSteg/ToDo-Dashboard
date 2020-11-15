@@ -54,12 +54,15 @@ body {
 }
 
 .todo-btn {
-    background: none;
-    border: none;
     font-size: 2rem;
-    color: white;
     margin: 0;
     padding: 0;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
 }
 
 .list-item {
@@ -67,6 +70,14 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.check-green {
+    color: green;
+}
+
+.complete {
+    text-decoration: line-through;
 }
 
 /* -- Weather -- */
