@@ -13,7 +13,7 @@ let deleteBtn = document.createElement('button');
 deleteBtn.classList.add('delete-btn', 'icon-btn');
 deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
 
-// Fuction to add a new todo once the .todo-btn has been clicked
+// Function to add a new todo once the .todo-btn has been clicked
 todoBtn.onclick = function (newTodo) {
     newTodo = addTodo.value;
 
