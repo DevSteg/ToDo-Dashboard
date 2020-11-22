@@ -47,3 +47,12 @@ function weatherApi(longitude, latitude) {
 
 }
 
+// Function to display the weather object on to index.html
+function displayWeather() {
+    let iconUrl = `https://openweathermap.org/img/w/${weather.icon}.png`;
+
+    cityName.innerHTML = weather.city;
+    temp.innerHTML = `${weather.temperature}°C`
+    weatherIcon.innerHTML = `<img src=${iconUrl} alt='Icon displaying current weather'>`
+}
+
