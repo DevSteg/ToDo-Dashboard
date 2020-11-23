@@ -96,19 +96,3 @@ weatherInput.addEventListener('keyup', function() {
     }
 
 })
-
-function addLocation() {
-    let weatherAdd = document.createElement('div');
-    weatherAdd.classList.add('weather-block');
-    weatherAdd.innerHTML = `<div class="loc-temp">
-                                <h2 class="location">${newWeather.city}</h2>
-                                <h3 class="temp">${newWeather.temperature}°C</h3>
-                            </div>
-                            <p class="weather-icon"><img src=https://openweathermap.org/img/w/${weather.icon}.png alt='Icon displaying current weather'></p>`
-
-    weatherSec.insertBefore(weatherAdd, weatherLC);
-}
-
-
-
-
