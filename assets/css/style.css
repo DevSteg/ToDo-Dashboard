@@ -92,3 +92,7 @@ body {
 .weather-icon {
     margin-top: 3%;
 }
+
+.display {
+    display: none;
+}

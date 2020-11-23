@@ -56,3 +56,59 @@ function displayWeather() {
     weatherIcon.innerHTML = `<img src=${iconUrl} alt='Icon displaying current weather'>`
 }
 
+const weatherBtn = document.querySelector('.weather-btn');
+const weatherInput = document.querySelector('.weather-input');
+const weatherSec = document.querySelector('.weather');
+const weatherLC = document.querySelector('.add-weather')
+
+weatherBtn.addEventListener('click', function() {
+    if (weatherInput.classList.contains('display')) {
+        weatherInput.classList.remove('display');
+        weatherBtn.innerText = 'Cancel';
+    } else {
+        weatherInput.classList.add('display');
+        weatherBtn.innerText = 'Add Location';
+    }
+})
+
+const newWeather = {};
+
+weatherInput.addEventListener('keyup', function() {
+    let newLocation = weatherInput.value;
+
+    if (event.keyCode === 13) {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${newLocation}&appid=0fc41264887289d9795ff5c0a989c31b`)
+        .then(function(response){
+            let data = response.json();
+            return data;
+        })
+        .then(function(data) {
+            newWeather.temperature = Math.floor(data.main.temp - 273.15);
+            newWeather.city = data.name;
+            newWeather.icon = data.weather[0].icon;
+        })
+        .then(function() {
+            addLocation();
+            weatherInput.value = '';
+            weatherInput.classList.add('display');
+            weatherBtn.innerText = 'Add Location';
+        })
+    }
+
+})
+
+function addLocation() {
+    let weatherAdd = document.createElement('div');
+    weatherAdd.classList.add('weather-block');
+    weatherAdd.innerHTML = `<div class="loc-temp">
+                                <h2 class="location">${newWeather.city}</h2>
+                                <h3 class="temp">${newWeather.temperature}°C</h3>
+                            </div>
+                            <p class="weather-icon"><img src=https://openweathermap.org/img/w/${weather.icon}.png alt='Icon displaying current weather'></p>`
+
+    weatherSec.insertBefore(weatherAdd, weatherLC);
+}
+
+
+
+
