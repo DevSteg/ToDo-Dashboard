@@ -55,3 +55,38 @@ deleteBtn.addEventListener('click', function() {
     // removes the parent li element
     this.parentElement.remove();
 })
+
+
+// Time Section
+
+const timeHour = document.querySelector('.hour');
+const timeMinute = document.querySelector('.minutes');
+const timeSeconds = document.querySelector('.seconds');
+const todayDay = document.querySelector('.day');
+const todayMonth = document.querySelector('.month');
+const todayYear = document.querySelector('.year');
+
+const today = new Date()
+
+function clock() {
+
+    let hour = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
+
+    timeHour.innerHTML = hour;
+    timeMinute.innerHTML = minutes;
+    timeSeconds.innerHTML = seconds;
+
+    if (hour < 10) {
+        timeHour.innerHTML = `0${hour}`;
+    } else if (minutes < 10) {
+        timeMinute.innerHTML = `0${minutes}`
+    } else if (seconds < 10) {
+        timeSeconds.innerHTML = `0${seconds}`
+    }
+    
+}
+
+window.onload = function() {setInterval(clock, 100)};
+
