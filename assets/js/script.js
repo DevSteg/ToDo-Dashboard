@@ -66,10 +66,10 @@ const todayDay = document.querySelector('.day');
 const todayMonth = document.querySelector('.month');
 const todayYear = document.querySelector('.year');
 
-const today = new Date()
 
 function clock() {
-
+    let today = new Date()
+    
     let hour = today.getHours();
     let minutes = today.getMinutes();
     let seconds = today.getSeconds();
@@ -86,7 +86,22 @@ function clock() {
         timeSeconds.innerHTML = `0${seconds}`
     }
     
+    setInterval(clock, 500);
 }
 
-window.onload = function() {setInterval(clock, 100)};
+function todaysDate() {    
+    let today = new Date()
+
+    let day = today.getDate();
+    let month = today.getMonth() + 1;
+    let year = today.getFullYear();
+    
+    todayDay.innerHTML = day;
+    todayMonth.innerHTML = month;
+    todayYear.innerHTML = year;
+    
+}
+
+
+window.onload = clock(), todaysDate();
 
