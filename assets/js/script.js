@@ -83,9 +83,9 @@ function clock() {
     if (hour < 10) {
         timeHour.innerHTML = `0${hour}`;
     } else if (minutes < 10) {
-        timeMinute.innerHTML = `0${minutes}`
+        timeMinute.innerHTML = `0${minutes}`;
     } else if (seconds < 10) {
-        timeSeconds.innerHTML = `0${seconds}`
+        timeSeconds.innerHTML = `0${seconds}`;
     }
     
     // refreshs the clock function to add the time in  realtime

@@ -2,7 +2,7 @@
 
 [View Live Project Here]()
 
-This is my Todo-weather Dashboard project. This project is heavily inspired by the [Momentum browser Extension](https://momentumdash.com/). Momentum is a dashboard I use everyday and I wanted to create my own. The project is aimed for use on a desktop/laptop monitor but is responsive and accessible on a range of devices.
+This is my Todo-weather Dashboard project. This project is heavily inspired by the [Momentum browser extension](https://momentumdash.com/). Momentum is a dashboard I use everyday and I wanted to create my own. The project is aimed for use on a desktop/laptop monitor but is responsive and accessible on a range of devices.
 
 ## User Experience (UX)
 

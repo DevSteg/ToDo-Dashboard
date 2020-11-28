@@ -96,3 +96,22 @@ body {
 .display {
     display: none;
 }
+
+/* -- Time/Date Section -- */
+
+.clock {
+    width: 125px;
+}
+
+.time{
+    margin: 0;
+}
+
+.hour, .minutes, .date {
+    font-weight: 700;
+}
+
+.seconds {
+    font-size: .7rem;
+}
+
