@@ -69,12 +69,84 @@ function addNewTodo(newTodo) {
 
     todoList.appendChild(todoItem);
 
+    setStorage(newTodo);
+
     // Resets the #todo-input.
     addTodo.value = '';
 }
 
+//  Add Todos to local Storage
+function setStorage(newTodo) {
+    let todoStor;
 
-// Pull todoArr from local stroage
+    if(localStorage.getItem('todoStor') === null) {
+        todoStor = [];
+    } else {
+        todoStor = JSON.parse(localStorage.getItem('todoStor'));
+    }
+
+    todoStor.push(newTodo);
+    localStorage.setItem('todoStor', JSON.stringify(todoStor));
+}
+
+// Get Todos from local storage
+function getStorage(Todo) {
+    let todoStor;
+
+    if(localStorage.getItem('todoStor') === null) {
+        todoStor = [];
+    } else {
+        todoStor = JSON.parse(localStorage.getItem('todoStor'));
+    }
+    todoStor.forEach(function(Todo){
+        // Creates new li element
+        let todoItem = document.createElement('li');
+        todoItem.classList.add('list-item');
+        todoItem.innerHTML = Todo;
+
+        // Creates new div for the check button and delete button
+        let checkDelDiv = document.createElement('div')
+        todoItem.appendChild(checkDelDiv);
+    
+        // Creates new button element for the check button
+        let checkBtn = document.createElement('button');
+        checkBtn.classList.add('check-btn', 'icon-btn');
+        checkBtn.innerHTML = '<i class="far fa-circle"></i>';
+        checkDelDiv.appendChild(checkBtn);
+    
+        // Adds functionality to the checkBtn
+        checkBtn.addEventListener('click', function() {
+        // If .check-green is active removes class and linethrough text, replaces the green checkmark with a circle icon
+        if (checkBtn.classList.contains('check-green')) {
+            this.innerHTML = '<i class="far fa-circle"></i>';
+            this.classList.remove('check-green');
+            checkDelDiv.parentElement.classList.remove('complete');
+        } else {
+            // If .check-green is not active, adds the class and linethrough text, replaces the circle with a green checkmark icon
+                this.innerHTML = '<i class="fas fa-check-circle"></i>';
+                this.classList.add('check-green');
+                checkDelDiv.parentElement.classList.add('complete');
+            }
+        })
+    
+        // Creates new button element for the delete button
+        let deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete-btn', 'icon-btn');
+        deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+        checkDelDiv.appendChild(deleteBtn);
+
+        // Add Functionality to the deleteBtn
+        deleteBtn.addEventListener('click', function() {
+            // removes the parent li element
+            let todoIndex = todoItem.innerText;
+            todoStor.splice(todoStor.indexOf(todoIndex), 1);
+            checkDelDiv.parentElement.remove();
+            localStorage.setItem('todoStor', JSON.stringify(todoStor));
+        })
+
+        todoList.appendChild(todoItem);
+    })
+} 
 
 // Time Section
 
@@ -127,4 +199,4 @@ function todaysDate() {
 }
 
 // Call the two functions to add Time and date to index.html when the page loads
-window.onload = clock(), todaysDate();
+window.onload = clock(), todaysDate(), getStorage();
