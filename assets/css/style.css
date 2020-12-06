@@ -48,7 +48,7 @@ body {
     font-family: 'Averia Serif Libre', cursive;
 }
 
-.icon-btn {
+.icon-btn, .delete-loc {
     background: none;
     border: none;
     color: white;
@@ -73,9 +73,10 @@ body {
     height: 35px;
 }
 
-.far {
+.far, .fas {
     height: 35px;
     padding-top: 10px;
+    pointer-events: none;
 }
 
 .delete-btn, .check-btn {
@@ -84,20 +85,20 @@ body {
 }
 
 .todo-list {
-    margin-top: 30px;
+    margin: 30px auto;
+    max-height: 250px;
     overflow: auto;
+    list-style: none;
+    width: 80%;
 }
+
 
 .list-item {
     margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     font-size: 1.5rem;
-}
-
-.list-item span {
-    line-height: 1.75;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .check-green {
@@ -106,6 +107,7 @@ body {
 
 .complete {
     text-decoration: line-through;
+    color: grey;
 }
 
 /* -- Weather -- */
@@ -131,8 +133,10 @@ body {
 .temp-c {
     font-size: 1.5rem;
 }
+
 .weather-icon {
     margin-top: 10%;
+    margin-left: 25px;
 }
 
 .weather-input {
@@ -141,6 +145,11 @@ body {
 
 .weather-btn {
     padding-bottom: 10px;
+}
+
+.delete-loc {
+    font-size: 0.75rem;
+    margin-top: 50px;
 }
 
 .display {
