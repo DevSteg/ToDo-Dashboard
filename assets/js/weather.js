@@ -1,5 +1,5 @@
 // Weather Section
-const cityName = document.querySelector('.location');
+const locName = document.querySelector('.location');
 const temp = document.querySelector('.temp');
 const weatherIcon = document.querySelector('.weather-icon');
 const weatherBlock = document.querySelector('.weather-block');
@@ -40,7 +40,7 @@ function weatherApi(longitude, latitude) {
     })
     .then(function(data) {
         weather.temperature = Math.floor(data.main.temp - 273.15);
-        weather.city = data.name;
+        weather.loc = data.name;
         weather.icon = data.weather[0].icon;
     })
     .then(function() {
@@ -53,7 +53,7 @@ function weatherApi(longitude, latitude) {
 function displayWeather() {
     let iconUrl = `https://openweathermap.org/img/w/${weather.icon}.png`;
     
-    cityName.innerHTML = weather.city;
+    locName.innerHTML = weather.loc;
     temp.innerHTML = `${weather.temperature}<span class="temp-c"> °C</span>`
     weatherIcon.innerHTML = `<img src=${iconUrl} alt='Icon displaying current weather'>`
 }
@@ -107,7 +107,7 @@ weatherInput.addEventListener('keyup', function() {
 // function to add data from newWeather object to index.html
 function addLocation() {
     let weatherAdd = document.createElement('div');
-    weatherAdd.classList.add('weather-block');
+    weatherAdd.classList.add('weather-block', 'col-md-6', 'col-lg-12');
     weatherAdd.innerHTML = `<div class="loc-temp">
                             <h2 class="location">${newWeather.city}</h2>
                             <h3 class="temp">${newWeather.temperature}<span class="temp-c"> °C</span></h3>
@@ -125,5 +125,5 @@ function addLocation() {
         this.parentElement.remove();
     })
 
-    weatherSec.insertBefore(weatherAdd, weatherLC);
+    weatherSec.appendChild(weatherAdd);
 }
