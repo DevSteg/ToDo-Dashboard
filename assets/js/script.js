@@ -179,7 +179,7 @@ function clock() {
         timeSeconds.innerHTML = `0${seconds}`;
     }
     
-    // refreshs the clock function to add the time in  realtime
+    // refreshs the clock function to add the time in realtime
     setInterval(clock, 500);
 }
 

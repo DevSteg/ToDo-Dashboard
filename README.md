@@ -26,6 +26,10 @@ This is my Todo-weather Dashboard project. This project is heavily inspired by t
         The two fonts used on the webpage were *Averia Serif Libre*, which was used for the titles and headings on the page and *Manjari* which was used for the main font of the page.
     * #### Colour Scheme
         The colour scheme is a simple white text to stand out from the background images used on the page.
+    * #### Background Image
+        The background Images swaps between 4 images once a day, as a proof of concept. Eventually I would like this to choose a random image of the day from an API.
+    * #### Weather Icons
+        The Weather icons are currently being pulled from the Openweathermap API. I would like to update this to use custom icons.
 
 
 - ### Wireframes
@@ -58,11 +62,13 @@ This is my Todo-weather Dashboard project. This project is heavily inspired by t
         * Google Fonts was used to import the fonts *Averia Serif Libre* and *Manjari* into the CSS file and both were used across the website.
     3. [Font Awesome:](https://fontawesome.com/)
         * Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
-    4. [Git:](https://git-scm.com/)
+    4. [Open Weather Map API:](https://openweathermap.org/api)
+        * The Open Weather map API was used to feed the weather data into the weather section.
+    5. [Git:](https://git-scm.com/)
         * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-    5. [GitHub:](https://github.com/)
+    6. [GitHub:](https://github.com/)
         * GitHub was used to store the projects code after being pushed from Git.
-    6. [Balsamiq:](https://balsamiq.com/)
+    7. [Balsamiq:](https://balsamiq.com/)
         * Balsamiq was used to create the [wireframes](assets/wireframes/personal_portfolio_wireframes.pdf) during the design process.
 
 ## Testing
