@@ -4,8 +4,6 @@ const temp = document.querySelector('.temp');
 const weatherIcon = document.querySelector('.weather-icon');
 const weatherBlock = document.querySelector('.weather-block');
 
-// let apiKey = 0fc41264887289d9795ff5c0a989c31b;
-
 
 // Empty weather object to be filled using API
 let weather = {};
@@ -39,14 +37,12 @@ function weatherApi(longitude, latitude) {
         return data;
     })
     .then(function(data) {
+        // adds the API data to the weather object
         weather.temperature = Math.floor(data.main.temp - 273.15);
         weather.loc = data.name;
         weather.icon = data.weather[0].icon;
-    })
-    .then(function() {
         displayWeather();
-    })
-    
+    })  
 }
 
 // Function to display the weather object on to index.html
@@ -74,7 +70,7 @@ weatherBtn.addEventListener('click', function() {
     }
 })
 
-// newWeather empty object ready for the data rom the API 
+// newWeather empty object ready for the data from the API 
 const newWeather = {};
 
 // Function to allow the user to fetch any chosen location from the API
@@ -87,18 +83,21 @@ weatherInput.addEventListener('keyup', function() {
             let data = response.json();
             return data;
         })
-        // Add chosen API data to the newWeather object
         .then(function(data) {
-            newWeather.temperature = Math.floor(data.main.temp - 273.15);
-            newWeather.city = data.name;
-            newWeather.icon = data.weather[0].icon;
-        })
-        // Runs function to add data to the index.html and reset the weatherBtn
-        .then(function() {
-            addLocation();
-            weatherInput.value = '';
-            weatherInput.classList.add('display');
-            weatherBtn.innerText = 'Add Location';
+            // checks if a valid location has been input
+            if(weatherInput === '' || data.main === undefined) {
+                alert('Please Enter a valid location!')
+            } else {
+                // Adds chosen API data to the newWeather Object
+                newWeather.temperature = Math.floor(data.main.temp - 273.15);
+                newWeather.city = data.name;
+                newWeather.icon = data.weather[0].icon;
+                // Runs function to add data to the index.html and reset the weatherBtn
+                addLocation();
+                weatherInput.value = '';
+                weatherInput.classList.add('display');
+                weatherBtn.innerText = 'Add Location';
+            }
         })
     }
     
