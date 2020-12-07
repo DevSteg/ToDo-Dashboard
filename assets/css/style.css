@@ -73,6 +73,10 @@ body {
     height: 35px;
 }
 
+.icon-btn:hover {
+    color: orange;
+}
+
 .far, .fas {
     height: 35px;
     padding-top: 10px;
@@ -125,6 +129,11 @@ body {
     padding: 20px 20px;
 }
 
+.add-weather{
+    text-align: right;
+    padding-right: 50px;
+}
+
 .location, .temp {
     font-size: 2.5rem;
     font-weight: 700;
@@ -141,10 +150,12 @@ body {
 
 .weather-input {
     background-color: rgba(0, 0, 0, 0.25);
+    max-width: 300px;
 }
 
 .weather-btn {
     padding-bottom: 10px;
+    font-weight: 700;
 }
 
 .delete-loc {
@@ -180,3 +191,9 @@ body {
     margin: 0;
 }
 
+
+/* -- Media Queries -- */
+
+@Media screen and (max-width: 1024px) {
+    
+}
