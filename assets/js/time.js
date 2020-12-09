@@ -48,4 +48,4 @@ function todaysDate() {
     
 }
 
-window.onload = clock(), todaysDate()
+window.onload = clock(), todaysDate();

@@ -9,7 +9,7 @@ todoBtn.addEventListener('click', function(){
     } else {
         addNewTodo();
     }
-})
+});
 addTodo.addEventListener('keyup', function(){
     if(event.keyCode === 13) {
         if(addTodo.value === '') {
@@ -18,7 +18,7 @@ addTodo.addEventListener('keyup', function(){
             addNewTodo();
         }
     }
-})
+});
 
 // Function to add a new todo once the .todo-btn has been clicked
 function addNewTodo(newTodo) {
@@ -48,7 +48,7 @@ function addNewTodo(newTodo) {
             this.classList.add('check-green');
             this.parentElement.classList.add('complete');
         }
-    })
+    });
     
     // Creates new button element for the delete button
     let deleteBtn = document.createElement('button');
@@ -60,7 +60,7 @@ function addNewTodo(newTodo) {
     deleteBtn.addEventListener('click', function() {
         // removes the parent li element
         this.parentElement.remove();
-    })
+    });
 
     todoList.appendChild(todoItem);
 
@@ -119,7 +119,7 @@ function getStorage(Todo) {
                 this.classList.add('check-green');
                 this.parentElement.classList.add('complete');
             }
-        })
+        });
     
         // Creates new button element for the delete button
         let deleteBtn = document.createElement('button');
@@ -136,10 +136,10 @@ function getStorage(Todo) {
             this.parentElement.remove();
             // Updates the local storage with the new array
             localStorage.setItem('todoStor', JSON.stringify(todoStor));
-        })
+        });
 
         todoList.appendChild(todoItem);
-    })
+    });
 } 
 // -- Code Created with the help of the DEV Ed tutorial, Can be found here - https://www.youtube.com/watch?v=Ttf3CEsEwMQ&t=1201s
 
@@ -151,11 +151,9 @@ function setBackground() {
 
     // Picks a random number between 1 and 4 and uses the number to pick the image to display.
     let i = Math.floor(Math.random() * 4);
-    document.body.style.backgroundImage = `url(${bgImage[i]})`
+    document.body.style.backgroundImage = `url(${bgImage[i]})`;
 
 }
 
 // Call the two functions to add Time and date to index.html when the page loads
 window.onload = getStorage(), setBackground();
-
-

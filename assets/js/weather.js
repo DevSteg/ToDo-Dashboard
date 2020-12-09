@@ -21,7 +21,7 @@ function giveLocation(position) {
     let longitude = position.coords.longitude;
     let latitude = position.coords.latitude;
     
-    weatherApi(longitude, latitude)
+    weatherApi(longitude, latitude);
 }
 
 // Alert error message if geolocation does not work
@@ -44,7 +44,7 @@ function weatherApi(longitude, latitude) {
         weather.loc = data.name;
         weather.icon = data.weather[0].icon;
         displayWeather();
-    })  
+    });
 }
 
 // Function to display the weather object on to index.html
@@ -52,8 +52,8 @@ function displayWeather() {
     let iconUrl = `https://openweathermap.org/img/w/${weather.icon}.png`;
     
     locName.innerHTML = weather.loc;
-    temp.innerHTML = `${weather.temperature}<span class="temp-c"> °C</span>`
-    weatherIcon.innerHTML = `<img src=${iconUrl} alt='Icon displaying current weather'>`
+    temp.innerHTML = `${weather.temperature}<span class="temp-c"> °C</span>`;
+    weatherIcon.innerHTML = `<img src=${iconUrl} alt='Icon displaying current weather'>`;
 }
 // -- Geolocation Code created with the help of tutorial from Code Explained on youtube, Can be found here - https://www.youtube.com/watch?v=KqZGuzrY9D4&t=1773s
 
@@ -100,10 +100,10 @@ weatherInput.addEventListener('keyup', function() {
                 weatherInput.classList.add('display');
                 weatherBtn.innerText = 'Add Location';
             }
-        })
+        });
     }
     
-})
+});
 
 // function to add data from newWeather object to index.html
 function addLocation() {
