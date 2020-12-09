@@ -8,11 +8,12 @@ const weatherBlock = document.querySelector('.weather-block');
 // Empty weather object to be filled using API
 let weather = {};
 
+// -- Geolocation Code created with the help of tutorial from Code Explained on youtube, Can be found here - https://www.youtube.com/watch?v=KqZGuzrY9D4&t=1773s
 // Check if Geolocation is enabled and function call
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(giveLocation, alertError);
+    navigator.geolocation.getCurrentPosition(giveLocation, errorMsg);
 } else {
-    alert('Browser does not support geolocation, Please add City using the add location button');
+    alert('Browser does not support geolocation, Please add location using the add location button');
 }
 
 // Get Users location and run them in the API function
@@ -24,8 +25,9 @@ function giveLocation(position) {
 }
 
 // Alert error message if geolocation does not work
-function alertError(error) {
-    alert(`${error.message}, Please enter city using the weather add button`);
+function errorMsg(error) {
+    alert(`${error.message}, Please enter location using the Add Location button`);
+    weatherBlock.classList.add('display');
 }
 
 // Function to get API data and add it the weather object using geolocation
@@ -53,11 +55,11 @@ function displayWeather() {
     temp.innerHTML = `${weather.temperature}<span class="temp-c"> °C</span>`
     weatherIcon.innerHTML = `<img src=${iconUrl} alt='Icon displaying current weather'>`
 }
+// -- Geolocation Code created with the help of tutorial from Code Explained on youtube, Can be found here - https://www.youtube.com/watch?v=KqZGuzrY9D4&t=1773s
 
 const weatherBtn = document.querySelector('.weather-btn');
 const weatherInput = document.querySelector('.weather-input');
 const weatherSec = document.querySelector('.weather');
-const weatherLC = document.querySelector('.add-weather')
 
 // Function to show the weather-input on index.html allowing the user to add another location
 weatherBtn.addEventListener('click', function() {
@@ -106,12 +108,12 @@ weatherInput.addEventListener('keyup', function() {
 // function to add data from newWeather object to index.html
 function addLocation() {
     let weatherAdd = document.createElement('div');
-    weatherAdd.classList.add('weather-block', 'col-md-6', 'col-lg-12');
+    weatherAdd.classList.add('weather-block');
     weatherAdd.innerHTML = `<div class="loc-temp">
                             <h2 class="location">${newWeather.city}</h2>
                             <h3 class="temp">${newWeather.temperature}<span class="temp-c"> °C</span></h3>
                             </div>
-                            <p class="weather-icon"><img src=https://openweathermap.org/img/w/${weather.icon}.png alt='Icon displaying current weather'></p>`;
+                            <p class="weather-icon"><img src=https://openweathermap.org/img/w/${newWeather.icon}.png alt='Icon displaying current weather'></p>`;
     
     // Creating the delete button for the weather section
     const deleteLoc = document.createElement('button');
