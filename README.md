@@ -2,7 +2,7 @@
 
 [View Live Project Here]()
 
-![Snapshot of the project]()
+![Snapshot of the project](assets/images/screenshots/todo-dashboard-snip.png)
 
 This is my Todo-weather Dashboard project. This project is inspired by the [Momentum browser extension](https://momentumdash.com/). Momentum is a dashboard I use everyday and I wanted to create my own. The project is aimed for use on a desktop/laptop monitor but is responsive and accessible on a range of devices.
 
