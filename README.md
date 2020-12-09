@@ -1,6 +1,6 @@
 <h1 align="center">Todo-Weather Dashboard</h1>
 
-[View Live Project Here]()
+[View Live Project Here](https://devsteg.github.io/Weather-ToDo-Dashboard/)
 
 ![Snapshot of the project](assets/images/screenshots/todo-dashboard-snip.png)
 
