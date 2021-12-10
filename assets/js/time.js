@@ -23,9 +23,11 @@ function clock() {
     // If the time is below 10, adds a zero infront of the number
     if (hour < 10) {
         timeHour.innerHTML = `0${hour}`;
-    } else if (minutes < 10) {
+    } 
+    if (minutes < 10) {
         timeMinute.innerHTML = `0${minutes}`;
-    } else if (seconds < 10) {
+    } 
+    if (seconds < 10) {
         timeSeconds.innerHTML = `0${seconds}`;
     }
     
