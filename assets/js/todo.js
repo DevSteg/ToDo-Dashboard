@@ -20,6 +20,20 @@ addTodo.addEventListener('keyup', function(){
     }
 });
 
+// Delete Button functionality
+function deleteTodo(deleteBtn, todoItem) {
+    deleteBtn.addEventListener('click', function() {
+        let todoStor = JSON.parse(localStorage.getItem('todoStor'))
+         // Removes the todo from the todoStor array
+        let todoIndex = todoItem.innerText;
+        todoStor.splice(todoStor.indexOf(todoIndex), 1);
+        // Removes the parent li element
+        this.parentElement.remove();
+        // Updates the local storage with the new array
+        localStorage.setItem('todoStor', JSON.stringify(todoStor));
+    });
+}
+
 // Function to add a new todo once the .todo-btn has been clicked
 function addNewTodo(newTodo) {
     newTodo = addTodo.value;
@@ -49,6 +63,8 @@ function addNewTodo(newTodo) {
             this.parentElement.classList.add('complete');
         }
     });
+    // set the todo into the local storage array
+    setStorage(newTodo);
     
     // Creates new button element for the delete button
     let deleteBtn = document.createElement('button');
@@ -56,15 +72,11 @@ function addNewTodo(newTodo) {
     deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
     todoItem.appendChild(deleteBtn);
 
-    // Add Functionality to the deleteBtn
-    deleteBtn.addEventListener('click', function() {
-        // removes the parent li element
-        this.parentElement.remove();
-    });
+    // add functionality to the delete button
+    deleteTodo(deleteBtn, todoItem);
 
     todoList.appendChild(todoItem);
 
-    setStorage(newTodo);
 
     // Resets the #todo-input.
     addTodo.value = '';
@@ -108,13 +120,13 @@ function getStorage(Todo) {
     
         // Adds functionality to the checkBtn
         checkBtn.addEventListener('click', function() {
-        // If .check-green is active removes class and linethrough text, replaces the green checkmark with a circle icon
-        if (checkBtn.classList.contains('check-green')) {
-            this.innerHTML = '<i class="far fa-circle"></i>';
-            this.classList.remove('check-green');
-            this.parentElement.classList.remove('complete');
-        } else {
-            // If .check-green is not active, adds the class and linethrough text, replaces the circle with a green checkmark icon
+            // If .check-green is active removes class and linethrough text, replaces the green checkmark with a circle icon
+            if (checkBtn.classList.contains('check-green')) {
+                this.innerHTML = '<i class="far fa-circle"></i>';
+                this.classList.remove('check-green');
+                this.parentElement.classList.remove('complete');
+            } else {
+                // If .check-green is not active, adds the class and linethrough text, replaces the circle with a green checkmark icon
                 this.innerHTML = '<i class="fas fa-check-circle"></i>';
                 this.classList.add('check-green');
                 this.parentElement.classList.add('complete');
@@ -127,16 +139,7 @@ function getStorage(Todo) {
         deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
         todoItem.appendChild(deleteBtn);
 
-        // Add Functionality to the deleteBtn
-        deleteBtn.addEventListener('click', function() {
-            // Removes the todo from the todoStor array
-            let todoIndex = todoItem.innerText;
-            todoStor.splice(todoStor.indexOf(todoIndex), 1);
-            // Removes the parent li element
-            this.parentElement.remove();
-            // Updates the local storage with the new array
-            localStorage.setItem('todoStor', JSON.stringify(todoStor));
-        });
+        deleteTodo(deleteBtn, todoItem);
 
         todoList.appendChild(todoItem);
     });
